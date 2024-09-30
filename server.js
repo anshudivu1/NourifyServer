@@ -13,7 +13,11 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:3000' }));
+const corsOptions = {
+  origin: 'https://nourifyclient.vercel.app/', // Your deployed frontend URL
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Ensure uploads directory exists
